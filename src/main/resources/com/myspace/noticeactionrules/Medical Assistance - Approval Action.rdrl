@@ -1,9 +1,16 @@
 package com.myspace.noticeactionrules;
 
 import java.lang.Number;
+import com.myspace.noticedatamodel.PPD;
+import com.myspace.noticedatamodel.ActionOutput;
+import com.myspace.noticedatamodel.PPDMessage;
 
 rule "Medical Assistance - Approval Action"
 	dialect "mvel"
 	when
+		PPD( dispositionStatusCode == "A" )
 	then
+		ActionOutput fact0 = new ActionOutput();
+		fact0.setActionCode( "MAA 2.0" );
+		insert( fact0 );
 end
