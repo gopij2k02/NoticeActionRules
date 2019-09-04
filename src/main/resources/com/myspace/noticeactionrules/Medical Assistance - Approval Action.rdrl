@@ -1,0 +1,9 @@
+package com.myspace.noticeactionrules;
+
+import java.lang.Number;
+
+rule "Medical Assistance - Approval Action"
+	dialect "mvel"
+	when
+	then
+end
