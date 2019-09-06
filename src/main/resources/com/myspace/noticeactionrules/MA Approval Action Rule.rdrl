@@ -11,6 +11,6 @@ rule "MA Approval Action Rule"
 		PPD( dispositionStatusCode == "A" )
 	then
 		ActionOutput fact0 = new ActionOutput();
-		fact0.setActionCode( "CAA 2.0" );
+		fact0.setActionCode( "MAA 2.0" );
 		insert( fact0 );
 end
