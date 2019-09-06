@@ -5,7 +5,7 @@ import com.myspace.noticedatamodel.PPD;
 import com.myspace.noticedatamodel.ActionOutput;
 import com.myspace.noticedatamodel.PPDMessage;
 
-rule "Medical Assistance - Approval Action"
+rule "MA Approval Action Rule"
 	dialect "mvel"
 	when
 		PPD( dispositionStatusCode == "A" )
