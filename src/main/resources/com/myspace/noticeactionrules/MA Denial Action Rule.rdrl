@@ -8,9 +8,9 @@ import com.myspace.noticedatamodel.PPDMessage;
 rule "MA Denial Action Rule"
 	dialect "mvel"
 	when
-		PPD( dispositionStatusCode == "A" )
+		PPD( dispositionStatusCode == "D" )
 	then
 		ActionOutput fact0 = new ActionOutput();
-		fact0.setActionCode( "MAA 2.0" );
+		fact0.setActionCode( "MAD 2.0" );
 		insert( fact0 );
 end
