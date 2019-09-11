@@ -5,7 +5,7 @@ import com.myspace.noticedatamodel.PPD;
 import com.myspace.noticedatamodel.ActionOutput;
 import com.myspace.noticedatamodel.PPDMessage;
 
-rule "MA Approval Action Rule"
+rule "TEMP"
 	dialect "mvel"
 	when
 		PPD( dispositionStatusCode == "D" , generalTypeCode == "Denial" , coverageTypeCode == "O" )
