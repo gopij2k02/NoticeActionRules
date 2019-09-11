@@ -9,6 +9,7 @@ rule "MA Approval Action Rule"
 	dialect "mvel"
 	when
 		PPD( dispositionStatusCode == "A" , generalTypeCode == "Approval" , coverageTypeCode == "O" )
+		( PPDMessage( eventType in ( "NEW", "RETROACTIVE" ) ) or PPDMessage( eventType == "READD" , currentKeyCode != " " , priorKeyCode == " " ) )
 	then
 		ActionOutput fact0 = new ActionOutput();
 		fact0.setActionCode( "MAA 2.0" );
