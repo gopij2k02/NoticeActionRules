@@ -1,0 +1,17 @@
+package com.myspace.noticeactionrules;
+
+import java.lang.Number;
+import com.myspace.noticedatamodel.PPD;
+import com.myspace.noticedatamodel.ActionOutput;
+import com.myspace.noticedatamodel.PPDMessage;
+
+rule "MA Denial Action Rule"
+	dialect "mvel"
+	when
+		PPD( dispositionStatusCode == "A" , generalTypeCode == "Approval" , coverageTypeCode == "O" )
+		( PPDMessage( eventType in ( "NEW", "RETROACTIVE" ) ) or PPDMessage( eventType == "READD" , currentKeyCode != "" , priorKeyCode == "" ) )
+	then
+		ActionOutput fact0 = new ActionOutput();
+		fact0.setActionCode( "MAA 2.0" );
+		insert( fact0 );
+end
