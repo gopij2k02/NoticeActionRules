@@ -8,10 +8,9 @@ import com.myspace.noticedatamodel.PPDMessage;
 rule "MA Approval Action Rule"
 	dialect "mvel"
 	when
-		PPD( dispositionStatusCode == "A" , generalTypeCode == "Approval" , coverageTypeCode == "O" )
-		( PPDMessage( eventType in ( "NEW", "RETROACTIVE" ) ) or PPDMessage( eventType == "READD" , currentKeyCode != "" , priorKeyCode == "" ) )
+		PPD( dispositionStatusCode == "D" , generalTypeCode == "Denial" , coverageTypeCode == "O" )
 	then
 		ActionOutput fact0 = new ActionOutput();
-		fact0.setActionCode( "MAA 2.0" );
+		fact0.setActionCode( "MAD 1.0" );
 		insert( fact0 );
 end
