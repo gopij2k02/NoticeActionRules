@@ -8,7 +8,7 @@ import com.myspace.noticedatamodel.PPDMessage;
 rule "Test MA Denial Rule"
 	dialect "mvel"
 	when
-		PPD( dispositionStatusCode == "D" , generalTypeCode == "Denial" , coverageTypeCode == "O" )
+		PPD( dispositionStatusCode == "D" , generalTypeCode == "TEST" , coverageTypeCode == "O" )
 	then
 		ActionOutput fact0 = new ActionOutput();
 		fact0.setActionCode( "MAD 1.0" );
