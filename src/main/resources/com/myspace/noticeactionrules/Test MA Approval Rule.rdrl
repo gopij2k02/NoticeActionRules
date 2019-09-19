@@ -8,7 +8,7 @@ import com.myspace.noticedatamodel.PPDMessage;
 rule "Test MA Approval Rule"
 	dialect "mvel"
 	when
-		PPD( dispositionStatusCode == "A" , generalTypeCode == "Approval" , coverageTypeCode == "O" )
+		PPD( dispositionStatusCode == "A" , generalTypeCode == "TEST" , coverageTypeCode == "O" )
 		( PPDMessage( eventType in ( "NEW", "RETROACTIVE" ) ) or PPDMessage( eventType == "READD" , currentKeyCode != "" , priorKeyCode == "" ) )
 	then
 		ActionOutput fact0 = new ActionOutput();
